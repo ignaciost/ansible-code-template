@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+ENV/
+env/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Ansible
+*.retry
+.ansible/
+.cache/
+collections/ansible_collections/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
+.directory
+
+# Secrets - Never commit these!
+*vault-password.txt
+*vault_pass.txt
+*.pem
+*.key
+secrets/
+credentials/
+
+# Temporary files
+.tmp/
+tmp/
+*.tmp

@@ -1,0 +1,46 @@
+---
+name: Ansible Syntax Check
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  syntax-check:
+    name: Ansible Syntax Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install Ansible
+        run: |
+          python -m pip install --upgrade pip
+          pip install ansible
+      
+      - name: Show Ansible version
+        run: ansible --version
+      
+      - name: Run syntax check on playbooks
+        run: |
+          # Find all playbook files and run syntax check
+          find . -name "*.yml" -o -name "*.yaml" | while read file; do
+            if grep -q "hosts:" "$file" 2>/dev/null; then
+              echo "Checking syntax for: $file"
+              ansible-playbook --syntax-check "$file" || exit 1
+            fi
+          done
+        shell: bash
+        continue-on-error: false

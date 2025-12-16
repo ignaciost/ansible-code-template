@@ -1,0 +1,34 @@
+---
+# Ansible-lint configuration
+
+profile: production  # or 'moderate', 'safety', 'shared'
+
+# Exclude paths from linting
+exclude_paths:
+  - .cache/
+  - .github/
+  - .git/
+  - venv/
+  - .venv/
+  - __pycache__/
+
+# Enable checking of all rules by default
+skip_list: []
+
+# Use default rules
+# You can enable or disable specific rules as needed
+# skip_list:
+#   - 'yaml[line-length]'
+#   - 'name[casing]'
+
+# Set warnings for specific rules instead of errors
+# warn_list:
+#   - 'experimental'
+
+# Enable offline mode (don't check for updates)
+offline: false
+
+# Set the minimum required Ansible version
+# supported_ansible_also:
+#   - '2.9'
+#   - '2.10'
