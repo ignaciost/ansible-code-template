@@ -10,10 +10,15 @@ rules:
     indent-sequences: consistent
   comments:
     min-spaces-from-content: 1
-  comments-indentation: {}
+  comments-indentation: false  # Required by ansible-lint
   document-start: disable
   truthy:
     allowed-values: ['true', 'false', 'yes', 'no']
+  braces:
+    max-spaces-inside: 1  # Required by ansible-lint
+  octal-values:
+    forbid-implicit-octal: true  # Required by ansible-lint
+    forbid-explicit-octal: true  # Required by ansible-lint
 
 ignore: |
   .github/

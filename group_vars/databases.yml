@@ -1,0 +1,17 @@
+---
+# Variables specific to database group
+
+# Database configuration
+db_package: postgresql
+db_service: postgresql
+db_data_dir: /var/lib/postgresql/data
+
+# Database settings
+db_port: 5432
+max_connections: 200
+shared_buffers: 256MB
+
+# Backup settings
+backup_enabled: true
+backup_schedule: "0 2 * * *"
+backup_retention_days: 7

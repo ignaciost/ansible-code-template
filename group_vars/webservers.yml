@@ -1,0 +1,16 @@
+---
+# Variables specific to webserver group
+
+# Web server configuration
+webserver_package: nginx
+webserver_service: nginx
+document_root: /var/www/html
+
+# Application settings
+app_port: 8080
+max_connections: 1000
+
+# SSL/TLS
+ssl_enabled: true
+ssl_certificate_path: /etc/ssl/certs/server.crt
+ssl_key_path: /etc/ssl/private/server.key

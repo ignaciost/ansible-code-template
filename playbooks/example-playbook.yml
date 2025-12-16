@@ -1,0 +1,20 @@
+---
+# Example playbook - demonstrates proper Ansible structure
+# This is a sample playbook to show the template in action
+- name: Example Playbook
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Display welcome message
+      ansible.builtin.debug:
+        msg: "Welcome to the Ansible Code Template!"
+
+    - name: Show template features
+      ansible.builtin.debug:
+        msg:
+          - "This template includes:"
+          - "- Issue templates (bug, feature, playbook)"
+          - "- PR templates with checklists"
+          - "- GitHub Actions (ansible-lint, yaml-lint, syntax-check)"
+          - "- Pre-configured linting rules"

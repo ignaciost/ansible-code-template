@@ -1,0 +1,21 @@
+---
+# Common variables for all hosts
+# These variables apply to every host in the inventory
+
+# System settings
+ntp_enabled: true
+ntp_servers:
+  - 0.pool.ntp.org
+  - 1.pool.ntp.org
+
+# Package management
+package_state: present
+update_cache: true
+
+# Security settings
+firewall_enabled: true
+selinux_state: enforcing
+
+# Logging
+log_level: info
+remote_logging: false
