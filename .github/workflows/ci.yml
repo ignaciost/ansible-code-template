@@ -1,0 +1,28 @@
+---
+name: CI
+
+on:
+  workflow_dispatch: 
+  pull_request:
+    branches:
+      - main
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint Ansible Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Lint Ansible Code
+        uses: ignaciost/gha-ignaciostactions/lint@main
+        with:
+          python-version: '3.11'
+          ansible_lint_version: 'v25.5.0'
+          run_yamllint: 'true'
+          run_ansible_lint: 'true'
